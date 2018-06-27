@@ -1,6 +1,7 @@
 package chainofresponsability;
 
-public class Item {
+
+public class Item  {
 
     private String nome;
     private double valor;

@@ -1,15 +1,21 @@
 package templatemethod;
 
+import chainofresponsability.Orcamento;
 import strategy.impostos.Imposto;
-import strategy.impostos.Orcamento;
 
-public abstract class TemplateDeImpostoCondicional implements Imposto {
-    @Override
+public abstract class TemplateDeImpostoCondicional extends Imposto {
+
+    public TemplateDeImpostoCondicional(){}
+
+    public TemplateDeImpostoCondicional(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
     public final double calcula(Orcamento orcamento) {
         if (deveUsarMaximaTaxacao(orcamento)) {
-            return maximaTaxacao(orcamento);
+            return maximaTaxacao(orcamento) + calculaDoOutroImposto(orcamento);
         } else {
-            return minimaTaxacao(orcamento);
+            return minimaTaxacao(orcamento) + calculaDoOutroImposto(orcamento);
         }
     }
 

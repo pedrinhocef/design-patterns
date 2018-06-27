@@ -1,8 +1,15 @@
 package templatemethod;
 
-import strategy.impostos.Orcamento;
+import chainofresponsability.Orcamento;
+import strategy.impostos.Imposto;
 
 public class Icpp extends TemplateDeImpostoCondicional {
+
+    public Icpp(){}
+
+    public Icpp(Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     @Override
     protected double minimaTaxacao(Orcamento orcamento) {

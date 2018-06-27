@@ -1,10 +1,17 @@
 package strategy.impostos;
 
-public class Iss implements Imposto {
+import chainofresponsability.Orcamento;
 
+public class Iss extends Imposto {
+
+    public Iss(){}
+
+    public Iss(Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     @Override
     public double calcula(Orcamento orcamento) {
-        return orcamento.getValor() * 0.06;
+        return orcamento.getValor() * 0.06 + calculaDoOutroImposto(orcamento);
     }
 }

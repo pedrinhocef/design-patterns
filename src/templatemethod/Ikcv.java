@@ -1,9 +1,16 @@
 package templatemethod;
 
 import chainofresponsability.Item;
-import strategy.impostos.Orcamento;
+import chainofresponsability.Orcamento;
+import strategy.impostos.Imposto;
 
 public class Ikcv extends TemplateDeImpostoCondicional {
+
+    public Ikcv(){}
+
+    public Ikcv(Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     public boolean temItemMaiorQueCemReaisNo(Orcamento orcamento) {
         for (Item item: orcamento.getItens()) {

@@ -1,10 +1,17 @@
 package strategy.impostos;
 
-public class Icms implements Imposto {
+import chainofresponsability.Orcamento;
 
+public class Icms extends Imposto {
+
+    public Icms(){}
+
+    public Icms(Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     @Override
     public double calcula(Orcamento orcamento) {
-        return orcamento.getValor() * 0.1;
+        return orcamento.getValor() * 0.1 + calculaDoOutroImposto(orcamento);
     }
 }

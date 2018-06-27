@@ -1,6 +1,8 @@
 package strategy.impostos;
 
-public class Iccc implements Imposto {
+import chainofresponsability.Orcamento;
+
+public class Iccc extends Imposto {
     @Override
     public double calcula(Orcamento orcamento) {
         if (orcamento.getValor() < 1000){
